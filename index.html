@@ -7,17 +7,75 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	</head>
-	<h1>
-		Trendlore
-	</h1>
 	<body>
-		<div id="searchSection">
-			<input type="text" id="searchInput" maxlength="20"></input>
-			<button type="button"> Search </button>
-		</div><br><br>
-		<h3>
-				Top 10
-		</h3>
-		<p>adj</p><input type="radio" id="adjRadio" /><p>Noun</p><input type="radio" id="nounRadio" /><p>Verb</p><input type="radio" id="verbRadio" />
+	<div id="superParent">
+		<div id="firstComponent">
+			<div id="title">
+				<h1>
+					Trendlore
+				</h1>
+			</div>
+			<br>
+			<div id="searchSection">
+				<input type="text" id="searchInput" maxlength="20"></input>
+				<button type="button"> Search </button>
+			</div>
+			<br><br>
+		</div>
+			<div id="secondComponent">
+				<h3 id="topTen">
+					Top 10
+				</h3>
+				<div id="boxSection" class="alert alert-primary" role="alert">
+					adj:<input type="checkbox" id="adjCheckbox" />noun:<input type="checkbox" id="nounCheckbox" />verb:<input type="checkbox" id="verbCheckbox" />
+				</div>
+			</div>
+	</div>
 	</body>
+	<style>
+		#boxSection{
+			width:40%
+		}
+		#superParent{
+			width:50%;
+			height:100vh;
+			overflow:auto;
+			background-color:AliceBlue;
+			position:relative;
+		}
+		#firstComponent{
+			position:relative;
+		}
+		#title{
+			position:absolute;
+			left:33%;
+		}
+		#searchSection{
+			position:absolute;
+			left:23%;
+			top:50px;
+		}
+		#secondComponent{
+			position:relative;
+			top:50%;
+		}
+		#topTen{
+			top: -40px;
+			left: 33%;
+			position: absolute;
+		}
+		#boxSection{
+			width:auto;
+			height:auto;
+		}
+		#adjCheckbox{
+			margin-right: 70px;
+		}
+		#nounCheckbox{
+			margin-right: 70px;
+		}
+		#verbCheckbox{
+			margin-right: 70px;
+		}
+	</style>
 </html>
