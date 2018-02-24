@@ -1,5 +1,5 @@
 # TrendLore
-
+Devs: Sal, NickName, HexMan
 Get statistical data from Twitter by #hashtag
 
 ![](https://i.imgur.com/NE6ie27.png)
