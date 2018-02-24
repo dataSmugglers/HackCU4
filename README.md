@@ -2,7 +2,7 @@
 
 Get statistical data from Twitter by #hashtag
 
-![](http://free.zalki-lab.com/vector-cartoon-bird-eps8/)
+![](https://i.imgur.com/NE6ie27.png)
 
 To get the flask app up and running you need to do:
 
