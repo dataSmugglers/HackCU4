@@ -1,6 +1,7 @@
 # TrendLore
 Devs: Sal, NickName, HexMan
 Get statistical data from Twitter by #hashtag
+Python Version: 3.6.3
 
 ![](https://i.imgur.com/NE6ie27.png)
 
