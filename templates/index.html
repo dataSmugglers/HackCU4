@@ -7,6 +7,10 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
+		<script>
+			var xresult = {{xresult}};
+            var yresult = {{yresult}};
+		</script>
 	</head>
 	<body>
 	<div id="superParent" class="container">
@@ -15,9 +19,11 @@
 				<img id="logo" src="../assets/bird.png"/>
 				<p class="h1" id="titleHeader">
  					Trendlore
-				</p>
-				<input type="text" id="searchInput" maxlength="20"></input>
-				<button type="button" class="btn btn-secondary"> Search </button>
+				</p>>
+				<form role="form" action="/" method="post">
+                    <input type="text" id="url" name="url" maxlength="20"></input>
+                    <button type="button" class="btn btn-secondary"> Search </button>
+				</form>
 					<div id="boxSection" class="alert alert-primary" role="alert">
 						<div class="row">
 							<div class="col">
@@ -48,7 +54,7 @@
 				</p>
 			</center>
 			<canvas id="myChart" width="400" height="400"></canvas>
-			<script src="./BarGraph.js"></script>
+			<script src="static/BarGraph.js"></script>
 		</div>
 	</div>
 	</body>

@@ -6,8 +6,8 @@
 
   Upon deployment, please, get rid of the values those are being innitialized.
 */
-/*integer*/var frequencyOfWord = [10, 12]; // y-axis element
-/*list*/var words = ["lulz", "lol"]; //X-axis element
+/*integer*/var frequencyOfWord = yresult; // y-axis element
+/*list*/var words = xresult; //X-axis element
 
 var chartInit = document.getElementById("myChart").getContext('2d');
 var chart = new Chart(chartInit, {

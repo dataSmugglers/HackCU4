@@ -1,4 +1,5 @@
 click==6.7
+statistics
 Flask==0.12.2
 Flask-DebugToolBar
 itsdangerous==0.24
