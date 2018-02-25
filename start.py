@@ -51,17 +51,15 @@ def index():
         xresult = ordered_lists[0]
         yresult = ordered_lists[1]
 
-        xresult = unicode(json.dumps(xresult))
-        yresult = unicode(json.dumps(yresult))
-
-        print(str(xresult))
-        print(type(xresult))
-
-        print(str(yresult))
-        print(type (yresult))
-        
+        xresult = json.dumps({"keyx": xresult})
 
 
+
+        xresult = []
+        # for i in before_results:
+          xresult.append(unicode(i['text']))
+        #xresult = before_results
+        yresult = word_dict
 
 
     return render_template('index.html', errors=errors, results=results, \

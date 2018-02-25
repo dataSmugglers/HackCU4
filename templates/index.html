@@ -51,9 +51,9 @@
 			</center>
 			<canvas id="myChart" width="400" height="400"></canvas>
 			<script src="static/BarGraph.js"></script>
-			<script>
+			<script charset="UTF-8">
 
-                var frequencyOfWord = unescape(encodeURIComponent( {{ xresult }} )) ; // y-axis element
+                var frequencyOfWord = unescape( {{ xresult }} ) ; // y-axis element
                 var words = {{yresult}}; //X-axis element
 
 				console.log(typeof words);
