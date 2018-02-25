@@ -60,14 +60,25 @@ def count_each_word(twitter_post):
             return_dict[word] = return_dict[word] + 1
     return return_dict
 
+  
 # Takes a dictionary of word -> count pairs
 # returns a list of lists
 # each list is sorted in descending order
 def order_list(word_dict):
     sorted_vals = sorted(word_dict.values(), reverse=True)
     sorted_keys = sorted(word_dict, key=word_dict.get, reverse=True)
+
     return_list = [sorted_keys, sorted_vals]
-    return return_list
+
+    updated_list = remove_empty(return_list)
+    return updated_list 
+
+def remove_empty(key_val_list):
+  key_val_list[0].pop(0)
+  key_val_list[1].pop(0)
+  return key_val_list
+  
+  
 
 # Our Sample size
 def get_sample(twitter_post_list):
@@ -79,16 +90,16 @@ def get_range(occurence_list):
     return occurence_list[0] - occurence_list[len(occurence_list)-1]
 
 
-# the most common recurring value (number)
+# The most common recurring value (number)
 def get_mode(occurrence_list):
     return statistics.mode(occurrence_list)
 
 
-# the middle value
+# The middle value
 def get_median(occurence_list):
     return statistics.median(occurence_list)
 
-# the average value
+# the 'average' value
 def get_mean(occurence_list):
     return statistics.mean(occurence_list)
-
+  
