@@ -34,18 +34,7 @@
 				</p>
 			</center>
 			<canvas id="myChart" width="400" height="400"></canvas>
-			<script>
-				var chartInit = document.getElementById("myChart").getContext('2d');
-				var chart = new Chart(chartInit, {
-					type: 'bar',
-					data: {
-						labels: ["TestingOne", "TestingTwo"],
-						datasets:[{
-							data: [0, 10, 5, 20]
-						}]
-					}
-				});
-			</script>
+			<script src="./BarGraph.js"></script>
 		</div>
 	</div>
 	</body>
@@ -53,6 +42,7 @@
 		#boxSection{
 			width: 50%;
 		}
+	<!-- Got the asthetic from the link below. -->
 	<!-- https://stackoverflow.com/questions/3274950/rounded-corners-for-input-type-text-using-border-radius-htc-for-ie -->
 		#searchInput{
 			border-bottom-color: #b3b3b3;
