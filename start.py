@@ -1,4 +1,6 @@
 from flask import Flask
+import json
+import parse
 import nltk
 import sys
 from TwitterAPI import TwitterAPI
@@ -18,23 +20,32 @@ def index():
     results = []
     errors = []
     if request.method == "POST":
-        url = request.form['url']
+        url = parse.remove_pound(request.form['url'])
 
-        print("Made it here")
-        # Setting up API Keys and Secrets
-        apiConsumerKey = str(os.environ['CONSUMER_KEY'])
-        apiConsumerSecret = str(os.environ['CONSUMER_SECRET'])
-        apiAccessTokenKey= str(os.environ['ACCESS_TOKEN_KEY'])
-        apiAccessTokenSecret = str(os.environ['ACCESS_TOKEN_SECRET'])
+        # API set up
+        api = Twitter_API_Call()
 
-        # Get Request from Twitter API
-        api = TwitterAPI(apiConsumerKey, apiConsumerSecret, apiAccessTokenKey,
-				 apiAccessTokenSecret)
+        # Formating to search Hashtags
         query = '%23{0}'.format(url)
-        before_results = api.request('search/tweets', {'q':query})
-        for i in before_results:
-          results.append(i)
-        results.append(before_results)
+
+        # Actual API request
+        before_results = api.request('search/tweets', {'q':query, 'count':100})
+
+        print(str(before_results))
+
+        # Count Posts and Concatenate posts
+        post_tuple = parse_tweets(before_results)
+        print(str(post_tuple))
+
+        # dictionary mapping words to frequency of that word
+        word_dict = parse.count_each_word(post_tuple[0])
+        print(str(word_dict))
+
+        # Sorted by frequency and returns two lists
+        ordered_lists = parse.order_list(word_dict)
+        print(str(ordered_lists))
+
+
 
     return render_template('index.html', errors=errors, results=results)
 
@@ -49,3 +60,26 @@ def tag():
     tokens = nltk.word_tokenize(sentence)
     tags = nltk.pos_tag(tokens)
     return str(tags)
+
+# Return a Concatonated String of Tweets
+# Also returns number of tweets
+def parse_tweets(dict_twitter):
+  # Count our tweets
+  count = 0
+  cat = ""
+  for i in dict_twitter:
+    count = count +1
+    cat += i["text"]
+    cat += " "
+  return (cat, count)
+  
+def Twitter_API_Call():
+  apiConsumerKey = str(os.environ['CONSUMER_KEY'])
+  apiConsumerSecret = str(os.environ['CONSUMER_SECRET'])
+  apiAccessTokenKey= str(os.environ['ACCESS_TOKEN_KEY'])
+  apiAccessTokenSecret = str(os.environ['ACCESS_TOKEN_SECRET'])
+
+  # Get Request from Twitter API
+  api = TwitterAPI(apiConsumerKey, apiConsumerSecret, apiAccessTokenKey,
+                           apiAccessTokenSecret)
+  return api
