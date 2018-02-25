@@ -18,6 +18,8 @@ sentence = "I love to eat spicy tacos, sip on coronas, all while relaxing at the
 @app.route('/', methods=["GET", "POST"])
 def index():
     results = []
+    xresult = []
+    yresult = []
     errors = []
     if request.method == "POST":
         url = parse.remove_pound(request.form['url'])
@@ -44,10 +46,14 @@ def index():
         # Sorted by frequency and returns two lists
         ordered_lists = parse.order_list(word_dict)
         print(str(ordered_lists))
+        xresult = ordered_lists[0]
+        yresult = ordered_lists[1]
 
 
 
-    return render_template('index.html', errors=errors, results=results)
+
+    return render_template('index.html', errors=errors, results=results, \
+    xresult = xresult, yresult = yresult)
 
 
 @app.route('/tokenize')
