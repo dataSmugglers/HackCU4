@@ -9,9 +9,20 @@ app = Flask(__name__)
 
 sentence = "I love to eat spicy tacos, sip on coronas, all while relaxing at the beach."
 
-@app.route('/')
+@app.route('/', methods=["GET", "POST"])
 def index():
-    return 'Index Page'
+    errors = []
+    results = {}
+    if request.method == "POST":
+      try:
+        url = request.form['url']
+        r = requests.get(url)
+      except:
+        errors.append(
+          " Couldnt get request"
+      )
+    return render_template('index.html', errors=errors, results=results)
+
 
 @app.route('/tokenize')
 def tokenize():
