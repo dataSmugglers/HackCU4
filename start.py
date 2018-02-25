@@ -1,6 +1,9 @@
 from flask import Flask
 import nltk
 import sys
+from TwitterAPI import TwitterAPI
+import os
+import requests
 from flask import Flask, render_template, request
 sys.path.insert(0, '../')
 import keys
@@ -15,10 +18,9 @@ def index():
     results = []
     errors = []
     if request.method == "POST":
-      try:
         url = request.form['url']
-        req = requests.get(url)
 
+        print("Made it here")
         # Setting up API Keys and Secrets
         apiConsumerKey = str(os.environ['CONSUMER_KEY'])
         apiConsumerSecret = str(os.environ['CONSUMER_SECRET'])
@@ -28,14 +30,12 @@ def index():
         # Get Request from Twitter API
         api = TwitterAPI(apiConsumerKey, apiConsumerSecret, apiAccessTokenKey,
 				 apiAccessTokenSecret)
-        query = '%23{0}'.format(req)
+        query = '%23{0}'.format(url)
         before_results = api.request('search/tweets', {'q':query})
+        for i in before_results:
+          results.append(i)
         results.append(before_results)
 
-      except:
-        errors.append(
-          " Couldnt get request"
-        )
     return render_template('index.html', errors=errors, results=results)
 
 
