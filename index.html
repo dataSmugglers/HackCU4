@@ -28,7 +28,7 @@
 		<div class="row">
 			<div id="searchSection" class="col">
 				<input type="text" id="searchInput" maxlength="20"></input>
-				<button type="button"> Search </button>
+				<button type="button" class="btn btn-secondary"> Search </button>
 			</div>
 		</div>
 
@@ -52,21 +52,44 @@
 									</div>
 								</div>
 							</div>
-							</div>
 					</div>
 			</div>
 		</div>
+	</div>
 	</body>
 	<style>
 		#boxSection{
 			width: 50%;
 		}
+	<!-- https://stackoverflow.com/questions/3274950/rounded-corners-for-input-type-text-using-border-radius-htc-for-ie --> 
+		#searchInput{
+			border-bottom-color: #b3b3b3;
+	 		border-bottom-left-radius: 3px;
+	 		border-bottom-right-radius: 3px;
+	 		border-bottom-style: solid;
+	 		border-bottom-width: 1px;
+	 		border-left-color: #b3b3b3;
+	 		border-left-style: solid;
+	 		border-left-width: 1px;
+	 		border-right-color: #b3b3b3;
+	 		border-right-style: solid;
+	 		border-right-width: 1px;
+	 		border-top-color: #b3b3b3;
+	 		border-top-left-radius: 3px;
+	 		border-top-right-radius: 3px;
+	 		border-top-style: solid;
+	 		border-top-width: 1px;`
+		}
 		#logo{
 			border-radius: 70%;
 		}
 		#superParent{
+			border-color: blue;
 			position: absolute;
 			background-color:AliceBlue;
+			height:100vh;
+			border-width: thin;
+			overflow:auto;
 			width:50%;
 			right:20;
 		}
