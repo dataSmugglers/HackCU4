@@ -1,4 +1,5 @@
 import re
+import statistics
 
 unsorted = {"fucker": 8, "you": 3, "scumbag": 24}
 keys = ["fucker","you","scumbag"]
@@ -57,9 +58,54 @@ def order_list(word_dict):
     return_list = [sorted_keys, sorted_vals]
     return return_list
 
-# our total population 'p'
-# (number of posts we are working with)
-def get_population(twitter_post_list):
+# Our Sample size
+def get_sample(twitter_post_list):
     return len(twitter_post_list)
 
+
+# The difference between the largest and smallest value
+def get_range(occurence_list):
+    return occurence_list[0] - occurence_list[len(occurence_list)-1]
+
+
+# the most common recurring value (number)
+def get_mode(occurrence_list):
+    return statistics.mode(occurrence_list)
+
+
+# the middle value
+def get_median(occurence_list):
+    return statistics.median(occurence_list)
+
+# the average value
+def get_mean(occurence_list):
+    return statistics.mean(occurence_list)
+
 print(str(order_list(unsorted)))
+print(get_range(sort_vals))
+print(get_mode(sort_vals))
+print(get_median(sort_vals))
+print(get_mean(sort_vals))+
+# The difference between the largest and smallest value
+def get_range(occurence_list):
+    return occurence_list[0] - occurence_list[len(occurence_list)-1]
+
+
+# the most common recurring value (number)
+def get_mode(occurrence_list):
+    return statistics.mode(occurrence_list)
+
+
+# the middle value
+def get_median(occurence_list):
+    return statistics.median(occurence_list)
+
+# the average value
+def get_mean(occurence_list):
+    return statistics.mean(occurence_list)
+
+print(str(order_list(unsorted)))
+print(get_range(sort_vals))
+print(get_mode(sort_vals))
+print(get_median(sort_vals))
+print(get_mean(sort_vals))

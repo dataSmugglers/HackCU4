@@ -1,7 +1,7 @@
 # TrendLore
 
 Get statistical data + graphs from Twitter according to #hashtag
-
+(Population size representative of the past 7 days)
 http://trendlore.org
 
 ### Prerequisites
