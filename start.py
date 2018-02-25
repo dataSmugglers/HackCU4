@@ -19,3 +19,7 @@ def tag():
     tokens = nltk.word_tokenize(sentence)
     tags = nltk.pos_tag(tokens)
     return str(tags)
+
+@app.route('/search/<user_hashtag_input>')
+def search(user_hashtag_input):
+    return 'Hashtag: %s' % user_hashtag_input
