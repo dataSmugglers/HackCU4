@@ -8,80 +8,57 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	</head>
 	<body>
-	<div id="superParent">
-		<div id="zerothComponent">
-			<img id="logo" src="./Bird.png"/>
+	<div id="superParent" class="container">
+		<div id="blueBird" class="row">
+			<div class="col">
+				<img id="logo" src="./Bird.png"/>
+			</div>
 		</div>
-		<div id="firstComponent">
-			<div id="title">
+
+		<div id="titleRow" class="row">
+			<div id="colRow" class="col">
 				<h1>
 					Trendlore
 				</h1>
 			</div>
-			<br>
-			<div id="searchSection">
+		</div>
+		<br>
+
+		<div class="row">
+			<div id="searchSection" class="col">
 				<input type="text" id="searchInput" maxlength="20"></input>
 				<button type="button"> Search </button>
 			</div>
-			<br><br>
 		</div>
-			<div id="secondComponent">
-				<h3 id="topTen">
-					Top 10
-				</h3>
-				<div id="boxSection" class="alert alert-primary" role="alert">
-					adj:<input type="checkbox" id="adjCheckbox" />noun:<input type="checkbox" id="nounCheckbox" />verb:<input type="checkbox" id="verbCheckbox" />
-				</div>
+
+			<br><br>
+
+			<div id="secondComponent" class="row">
+					<div id="second" class="col">
+						<h3 id="topTen">
+							Top 10
+						</h3>
+							<div id="boxSection" class="alert alert-primary" role="alert">
+								<div class="row">
+									<div class="col">
+										adj:<input type="checkbox" id="adjCheckbox" marginwidth="200"/>
+									</div>
+									<div class="col">
+										noun:<input type="checkbox" id="nounCheckbox" marginwidth="200"/>
+									</div>
+									<div class="col">
+										verb:<input type="checkbox" id="verbCheckbox" marginwidth="200"/>
+									</div>
+								</div>
+							</div>
+							</div>
+					</div>
 			</div>
 	</div>
 	</body>
 	<style>
-		#logo{
-			border-radius: 50%;
-		}
 		#boxSection{
-			width:40%
-		}
-		#superParent{
-			width:50%;
-			height:100vh;
-			overflow:auto;
-			background-color:AliceBlue;
-			position:relative;
-		}
-		#firstComponent{
-			position:relative;
-		}
-		#title{
-			position:absolute;
-			left:33%;
-		}
-		#searchSection{
-			position:absolute;
-			left:23%;
-			top:50px;
-		}
-		#secondComponent{
-			position:relative;
-			top:50%;
-		}
-		#topTen{
-			top: -40px;
-			left: 33%;
-			position: absolute;
-		}
-		#boxSection{
-			width:auto;
-			height:auto;
-		}
-		#adjCheckbox{
-			margin-right: 70px;
-		}
-		#nounCheckbox{
-			margin-right: 70px;
-		}
-		#verbCheckbox{
-			margin-right: 70px;
+			width: 50%;
 		}
 	</style>
 </html>
