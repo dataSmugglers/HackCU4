@@ -1,6 +1,10 @@
 /*
   Please notice that 10 is being associated with lulz and 12 is being
   associated with lol.
+
+  The below variables are where the data needs to be fed from the backend.
+
+  Upon deployment, please, get rid of the values those are being innitialized.
 */
 /*integer*/var frequencyOfWord = [10, 12]; // y-axis element
 /*list*/var words = ["lulz", "lol"]; //X-axis element
