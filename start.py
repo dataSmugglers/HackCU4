@@ -45,4 +45,3 @@ def tag():
     tokens = nltk.word_tokenize(sentence)
     tags = nltk.pos_tag(tokens)
     return str(tags)
-
