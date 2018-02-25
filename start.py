@@ -38,6 +38,7 @@ def index():
         # Count Posts and Concatenate posts
         post_tuple = parse_tweets(before_results)
         print(str(post_tuple))
+        post_tuple = post_tuple
 
         # dictionary mapping words to frequency of that word
         word_dict = parse.count_each_word(post_tuple[0])
@@ -46,8 +47,19 @@ def index():
         # Sorted by frequency and returns two lists
         ordered_lists = parse.order_list(word_dict)
         print(str(ordered_lists))
+
         xresult = ordered_lists[0]
         yresult = ordered_lists[1]
+
+        xresult = unicode(json.dumps(xresult))
+        yresult = unicode(json.dumps(yresult))
+
+        print(str(xresult))
+        print(type(xresult))
+
+        print(str(yresult))
+        print(type (yresult))
+        
 
 
 
@@ -72,11 +84,11 @@ def tag():
 def parse_tweets(dict_twitter):
   # Count our tweets
   count = 0
-  cat = ""
+  cat = unicode("")
   for i in dict_twitter:
     count = count +1
-    cat += i["text"]
-    cat += " "
+    cat += unicode(i["text"])
+    cat += unicode(" ")
   return (cat, count)
   
 def Twitter_API_Call():

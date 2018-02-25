@@ -6,10 +6,18 @@
 
   Upon deployment, please, get rid of the values those are being innitialized.
 */
-/*integer*/var frequencyOfWord = yresult; // y-axis element
-/*list*/var words = xresult; //X-axis element
+
+var frequencyOfWord = []; // y-axis element
+var words = []; //X-axis element
+
+// Grabs vars from html file
+function resultant(x, y ) {
+  frequencyOfWord = y;
+  words = x;
+}
 
 var chartInit = document.getElementById("myChart").getContext('2d');
+
 var chart = new Chart(chartInit, {
   type: 'bar',
   data: {
