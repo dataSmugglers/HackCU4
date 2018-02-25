@@ -38,7 +38,8 @@ def clean_up(word_list):
 # returns a dictionary
 def count_each_word(twitter_post):
     return_dict = {}
-    word_list = twitter_post.split(" ")
+    twitter_post = twitter_post
+    word_list = twitter_post.split(u" ")
     cleaned_word_list = clean_up(word_list)
     for word in cleaned_word_list:
         if word not in return_dict:

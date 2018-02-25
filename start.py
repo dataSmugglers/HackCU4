@@ -32,6 +32,8 @@ def index():
 
         # Actual API request
         before_results = api.request('search/tweets', {'q':query, 'count':100})
+        for i in before_results:
+          results.append(i['text'])
 
         print(str(before_results))
 
@@ -57,9 +59,10 @@ def index():
 
         xresult = []
         # for i in before_results:
-          xresult.append(unicode(i['text']))
+        #xresult.append(unicode(i['text']))
         #xresult = before_results
-        yresult = word_dict
+        yresult = []
+        xresult = []
 
 
     return render_template('index.html', errors=errors, results=results, \
