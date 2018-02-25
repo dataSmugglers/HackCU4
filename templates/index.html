@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>#Trendlore </title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+	<div id="superParent" class="container">
+		<div class="row">
+			<div class="col" id="firstHalf">
+				<img id="logo" src="../assets/bird.png"/>
+				<h1>
+					Trendlore
+				</h1>
+				<input type="text" id="searchInput" maxlength="20"></input>
+				<button type="button" class="btn btn-secondary"> Search </button>
+				<div id="boxSection" class="alert alert-primary" role="alert">
+					adj:<input type="checkbox" id="adjCheckbox" marginwidth="200"/>
+					noun:<input type="checkbox" id="nounCheckbox" marginwidth="200"/>
+					verb:<input type="checkbox" id="verbCheckbox" marginwidth="200"/>
+				</div>
+		</div>
+		<div class="col" id="secondHalf">
+			<center>
+				{% for result in results %}
+            <h4>{{ result }}</h4>
+        {% endfor %}
+				<p>
+						Testing
+				</p>
+			</center>
+		</div>
+	</div>
+	</body>
+	<style>
+		#boxSection{
+			width: 50%;
+		}
+	<!-- https://stackoverflow.com/questions/3274950/rounded-corners-for-input-type-text-using-border-radius-htc-for-ie -->
+		#searchInput{
+			border-bottom-color: #b3b3b3;
+	 		border-bottom-left-radius: 3px;
+	 		border-bottom-right-radius: 3px;
+	 		border-bottom-style: solid;
+	 		border-bottom-width: 1px;
+	 		border-left-color: #b3b3b3;
+	 		border-left-style: solid;
+	 		border-left-width: 1px;
+	 		border-right-color: #b3b3b3;
+	 		border-right-style: solid;
+	 		border-right-width: 1px;
+	 		border-top-color: #b3b3b3;
+	 		border-top-left-radius: 3px;
+	 		border-top-right-radius: 3px;
+	 		border-top-style: solid;
+	 		border-top-width: 1px;`
+		}
+		#logo{
+			border-radius: 70%;
+		}
+		#firstHalf{
+			border-color: blue;
+			position: relative;
+			background-color:AliceBlue;
+			height:100vh;
+			border-width: thin;
+			overflow:auto;
+			right:20;
+		}
+	</style>
+</html>
