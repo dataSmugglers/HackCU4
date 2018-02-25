@@ -3,7 +3,7 @@ import nltk
 import sys
 sys.path.insert(0, '../')
 import keys
-keys.main() // Adds env variables for the API keys.
+keys.main() # Adds env variables for the API keys.
 
 app = Flask(__name__)
 
