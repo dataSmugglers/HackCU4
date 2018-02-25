@@ -9,51 +9,30 @@
 	</head>
 	<body>
 	<div id="superParent" class="container">
-		<div class="col">
-		<div id="blueBird" class="row">
-			<div class="col">
-				<img id="logo" src="./assets/bird.png"/>
-			</div>
-		</div>
-
-		<div id="titleRow" class="row">
-			<div id="colRow" class="col">
+		<div class="row">
+			<div class="col" id="firstHalf">
+				<img id="logo" src="../assets/bird.png"/>
 				<h1>
 					Trendlore
 				</h1>
-			</div>
-		</div>
-		<br>
-
-		<div class="row">
-			<div id="searchSection" class="col">
 				<input type="text" id="searchInput" maxlength="20"></input>
 				<button type="button" class="btn btn-secondary"> Search </button>
-			</div>
+				<div id="boxSection" class="alert alert-primary" role="alert">
+					adj:<input type="checkbox" id="adjCheckbox" marginwidth="200"/>
+					noun:<input type="checkbox" id="nounCheckbox" marginwidth="200"/>
+					verb:<input type="checkbox" id="verbCheckbox" marginwidth="200"/>
+				</div>
 		</div>
+		<div class="col" id="secondHalf">
+			<center>
+				{% for result in results %}
+            <h4>{{ result }}</h4>
+        {% endfor %}
+				<p>
+						Testing
+				</p>
 
-			<br><br>
-
-			<div id="secondComponent" class="row">
-					<div id="second" class="col">
-						<h3 id="topTen">
-							Top 10
-						</h3>
-							<div id="boxSection" class="alert alert-primary" role="alert">
-								<div class="row">
-									<div class="col">
-										adj:<input type="checkbox" id="adjCheckbox" marginwidth="200"/>
-									</div>
-									<div class="col">
-										noun:<input type="checkbox" id="nounCheckbox" marginwidth="200"/>
-									</div>
-									<div class="col">
-										verb:<input type="checkbox" id="verbCheckbox" marginwidth="200"/>
-									</div>
-								</div>
-							</div>
-					</div>
-			</div>
+			</center>
 		</div>
 	</div>
 	</body>
@@ -61,7 +40,7 @@
 		#boxSection{
 			width: 50%;
 		}
-	<!-- https://stackoverflow.com/questions/3274950/rounded-corners-for-input-type-text-using-border-radius-htc-for-ie --> 
+	<!-- https://stackoverflow.com/questions/3274950/rounded-corners-for-input-type-text-using-border-radius-htc-for-ie -->
 		#searchInput{
 			border-bottom-color: #b3b3b3;
 	 		border-bottom-left-radius: 3px;
@@ -83,14 +62,13 @@
 		#logo{
 			border-radius: 70%;
 		}
-		#superParent{
+		#firstHalf{
 			border-color: blue;
-			position: absolute;
+			position: relative;
 			background-color:AliceBlue;
 			height:100vh;
 			border-width: thin;
 			overflow:auto;
-			width:50%;
 			right:20;
 		}
 	</style>
