@@ -26,7 +26,8 @@ def index():
         # Get Request from Twitter API
         api = TwitterAPI(apiConsumerKey, apiConsumerSecret, apiAccessTokenKey,
 				 apiAccessTokenSecret)
-        results = api.request('search/tweets', {'q':'%23' + str(req)})
+        query = '%23{0}'.format(req)
+        results = api.request('search/tweets', {'q':query)
 
       except:
         errors.append(
