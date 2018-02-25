@@ -8,74 +8,90 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	</head>
 	<body>
-	<div id="superParent">
-		<div id="firstComponent">
-			<div id="title">
+	<div id="superParent" class="container">
+		<div class="col">
+		<div id="blueBird" class="row">
+			<div class="col">
+				<img id="logo" src="./Bird.png"/>
+			</div>
+		</div>
+
+		<div id="titleRow" class="row">
+			<div id="colRow" class="col">
 				<h1>
 					Trendlore
 				</h1>
 			</div>
-			<br>
-			<div id="searchSection">
-				<input type="text" id="searchInput" maxlength="20"></input>
-				<button type="button"> Search </button>
-			</div>
-			<br><br>
 		</div>
-			<div id="secondComponent">
-				<h3 id="topTen">
-					Top 10
-				</h3>
-				<div id="boxSection" class="alert alert-primary" role="alert">
-					adj:<input type="checkbox" id="adjCheckbox" />noun:<input type="checkbox" id="nounCheckbox" />verb:<input type="checkbox" id="verbCheckbox" />
-				</div>
+		<br>
+
+		<div class="row">
+			<div id="searchSection" class="col">
+				<input type="text" id="searchInput" maxlength="20"></input>
+				<button type="button" class="btn btn-secondary"> Search </button>
 			</div>
+		</div>
+
+			<br><br>
+
+			<div id="secondComponent" class="row">
+					<div id="second" class="col">
+						<h3 id="topTen">
+							Top 10
+						</h3>
+							<div id="boxSection" class="alert alert-primary" role="alert">
+								<div class="row">
+									<div class="col">
+										adj:<input type="checkbox" id="adjCheckbox" marginwidth="200"/>
+									</div>
+									<div class="col">
+										noun:<input type="checkbox" id="nounCheckbox" marginwidth="200"/>
+									</div>
+									<div class="col">
+										verb:<input type="checkbox" id="verbCheckbox" marginwidth="200"/>
+									</div>
+								</div>
+							</div>
+					</div>
+			</div>
+		</div>
 	</div>
 	</body>
 	<style>
 		#boxSection{
-			width:40%
+			width: 50%;
+		}
+	<!-- https://stackoverflow.com/questions/3274950/rounded-corners-for-input-type-text-using-border-radius-htc-for-ie --> 
+		#searchInput{
+			border-bottom-color: #b3b3b3;
+	 		border-bottom-left-radius: 3px;
+	 		border-bottom-right-radius: 3px;
+	 		border-bottom-style: solid;
+	 		border-bottom-width: 1px;
+	 		border-left-color: #b3b3b3;
+	 		border-left-style: solid;
+	 		border-left-width: 1px;
+	 		border-right-color: #b3b3b3;
+	 		border-right-style: solid;
+	 		border-right-width: 1px;
+	 		border-top-color: #b3b3b3;
+	 		border-top-left-radius: 3px;
+	 		border-top-right-radius: 3px;
+	 		border-top-style: solid;
+	 		border-top-width: 1px;`
+		}
+		#logo{
+			border-radius: 70%;
 		}
 		#superParent{
-			width:50%;
-			height:100vh;
-			overflow:auto;
-			background-color:AliceBlue;
-			position:relative;
-		}
-		#firstComponent{
-			position:relative;
-		}
-		#title{
-			position:absolute;
-			left:33%;
-		}
-		#searchSection{
-			position:absolute;
-			left:23%;
-			top:50px;
-		}
-		#secondComponent{
-			position:relative;
-			top:50%;
-		}
-		#topTen{
-			top: -40px;
-			left: 33%;
+			border-color: blue;
 			position: absolute;
-		}
-		#boxSection{
-			width:auto;
-			height:auto;
-		}
-		#adjCheckbox{
-			margin-right: 70px;
-		}
-		#nounCheckbox{
-			margin-right: 70px;
-		}
-		#verbCheckbox{
-			margin-right: 70px;
+			background-color:AliceBlue;
+			height:100vh;
+			border-width: thin;
+			overflow:auto;
+			width:50%;
+			right:20;
 		}
 	</style>
 </html>

@@ -1,5 +1,9 @@
 from flask import Flask
 import nltk
+import sys
+sys.path.insert(0, '../')
+import keys
+keys.main() // Adds env variables for the API keys.
 
 app = Flask(__name__)
 
@@ -19,7 +23,3 @@ def tag():
     tokens = nltk.word_tokenize(sentence)
     tags = nltk.pos_tag(tokens)
     return str(tags)
-
-@app.route('/search/<user_hashtag_input>')
-def search(user_hashtag_input):
-    return 'Hashtag: %s' % user_hashtag_input
