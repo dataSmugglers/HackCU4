@@ -14,14 +14,34 @@ def remove_pound(user_input):
     new_user_input = re.sub('[#]', '', user_input)
     return new_user_input
 
+#.!?,
+def remove_punc(single_word):
+    new_user_input = re.sub('[?]', '', single_word)
+    new_new_user_input = re.sub('[\n]', '', new_user_input)
+    return new_new_user_input
+
+# Takes a list of strings with puncuation and returns a list  of strings 
+# without puncuation and lowercases
+def clean_up(word_list):
+  temp = []
+  for word in word_list:
+    if "//" not in word:
+      derp = remove_punc(word)
+      temp.append(derp.lower())
+    else:
+      temp.append(word)
+  return temp
+    
+
 # create list of words (word is key, number of instances is value)
 # if words exists increment its value
 # else continue
 # returns a dictionary
-def count_words(twitter_post):
+def count_each_word(twitter_post):
     return_dict = {}
     word_list = twitter_post.split(" ")
-    for word in word_list:
+    cleaned_word_list = clean_up(word_list)
+    for word in cleaned_word_list:
         if word not in return_dict:
             return_dict[word] = 1
         else:
@@ -34,7 +54,7 @@ def count_words(twitter_post):
 def order_list(word_dict):
     sorted_vals = sorted(word_dict.values(), reverse=True)
     sorted_keys = sorted(word_dict, key=word_dict.get, reverse=True)
-    return_list = [sorted_keys, sort_vals]
+    return_list = [sorted_keys, sorted_vals]
     return return_list
 
 # our total population 'p'
