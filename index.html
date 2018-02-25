@@ -7,17 +7,91 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	</head>
-	<h1>
-		Trendlore
-	</h1>
 	<body>
-		<div id="searchSection">
-			<input type="text" id="searchInput" maxlength="20"></input>
-			<button type="button"> Search </button>
-		</div><br><br>
-		<h3>
-				Top 10
-		</h3>
-		<p>adj</p><input type="radio" id="adjRadio" /><p>Noun</p><input type="radio" id="nounRadio" /><p>Verb</p><input type="radio" id="verbRadio" />
+	<div id="superParent" class="container">
+		<div class="col">
+		<div id="blueBird" class="row">
+			<div class="col">
+				<img id="logo" src="./Bird.png"/>
+			</div>
+		</div>
+
+		<div id="titleRow" class="row">
+			<div id="colRow" class="col">
+				<h1>
+					Trendlore
+				</h1>
+			</div>
+		</div>
+		<br>
+
+		<div class="row">
+			<div id="searchSection" class="col">
+				<input type="text" id="searchInput" maxlength="20"></input>
+				<button type="button" class="btn btn-secondary"> Search </button>
+			</div>
+		</div>
+
+			<br><br>
+
+			<div id="secondComponent" class="row">
+					<div id="second" class="col">
+						<h3 id="topTen">
+							Top 10
+						</h3>
+							<div id="boxSection" class="alert alert-primary" role="alert">
+								<div class="row">
+									<div class="col">
+										adj:<input type="checkbox" id="adjCheckbox" marginwidth="200"/>
+									</div>
+									<div class="col">
+										noun:<input type="checkbox" id="nounCheckbox" marginwidth="200"/>
+									</div>
+									<div class="col">
+										verb:<input type="checkbox" id="verbCheckbox" marginwidth="200"/>
+									</div>
+								</div>
+							</div>
+					</div>
+			</div>
+		</div>
+	</div>
 	</body>
+	<style>
+		#boxSection{
+			width: 50%;
+		}
+	<!-- https://stackoverflow.com/questions/3274950/rounded-corners-for-input-type-text-using-border-radius-htc-for-ie --> 
+		#searchInput{
+			border-bottom-color: #b3b3b3;
+	 		border-bottom-left-radius: 3px;
+	 		border-bottom-right-radius: 3px;
+	 		border-bottom-style: solid;
+	 		border-bottom-width: 1px;
+	 		border-left-color: #b3b3b3;
+	 		border-left-style: solid;
+	 		border-left-width: 1px;
+	 		border-right-color: #b3b3b3;
+	 		border-right-style: solid;
+	 		border-right-width: 1px;
+	 		border-top-color: #b3b3b3;
+	 		border-top-left-radius: 3px;
+	 		border-top-right-radius: 3px;
+	 		border-top-style: solid;
+	 		border-top-width: 1px;`
+		}
+		#logo{
+			border-radius: 70%;
+		}
+		#superParent{
+			border-color: blue;
+			position: absolute;
+			background-color:AliceBlue;
+			height:100vh;
+			border-width: thin;
+			overflow:auto;
+			width:50%;
+			right:20;
+		}
+	</style>
 </html>
