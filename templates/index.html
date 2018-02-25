@@ -6,6 +6,7 @@
 		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
 	</head>
 	<body>
 	<div id="superParent" class="container">
@@ -31,8 +32,20 @@
 				<p>
 						Testing
 				</p>
-
 			</center>
+			<canvas id="myChart" width="400" height="400"></canvas>
+			<script>
+				var chartInit = document.getElementById("myChart").getContext('2d');
+				var chart = new Chart(chartInit, {
+					type: 'bar',
+					data: {
+						labels: ["TestingOne", "TestingTwo"],
+						datasets:[{
+							data: [0, 10, 5, 20]
+						}]
+					}
+				});
+			</script>
 		</div>
 	</div>
 	</body>
