@@ -1,12 +1,7 @@
 import re
 import statistics
 
-unsorted = {"fucker": 8, "you": 3, "scumbag": 24}
-keys = ["fucker","you","scumbag"]
-vals=[8,3,24]
-
-sort_vals=[24,8,3]
-
+word_filter_list = ["","rt"]
 
 # Use to remove 'hastags' from user input strings.
 # This way we can properly recognize the words
@@ -15,9 +10,27 @@ def remove_pound(user_input):
     new_user_input = re.sub('[#]', '', user_input)
     return new_user_input
 
+
+# Use this function to clean up the punctuation.
 def remove_punc(single_word):
-    new_user_input = re.sub('[#.!?,]', '', single_word)
-    return new_user_input
+    new_user_input = re.sub('[#.!?,:;]', '', single_word)
+    return new_new_user_input
+
+
+# Check if a word if filtered
+# Takes the list of all words, and their frequency list
+# Returns a list of lists
+def word_filter(word_list, freq_list):
+    ret_list = []
+    for target in word_list:
+        if target in word_filter_list:
+            indx = word_list.index(target)
+            word_list.remove(target)
+            freq_list.remove(indx)
+    ret_list.append(word_list)
+    ret_list.append(freq_list)
+    return ret_list
+
 
 # Takes a list of strings with puncuation and returns a list  of strings 
 # without puncuation and lowercases
@@ -30,7 +43,7 @@ def clean_up(word_list):
     else:
       temp.append(word)
   return temp
-    
+
 
 # create list of words (word is key, number of instances is value)
 # if words exists increment its value
@@ -47,6 +60,7 @@ def count_each_word(twitter_post):
             return_dict[word] = return_dict[word] + 1
     return return_dict
 
+  
 # Takes a dictionary of word -> count pairs
 # returns a list of lists
 # each list is sorted in descending order
@@ -76,16 +90,16 @@ def get_range(occurence_list):
     return occurence_list[0] - occurence_list[len(occurence_list)-1]
 
 
-# the most common recurring value (number)
-#def get_mode(occurrence_list):
-#    return statistics.mode(occurrence_list)
+# The most common recurring value (number)
+def get_mode(occurrence_list):
+    return statistics.mode(occurrence_list)
 
 
-# the middle value
+# The middle value
 def get_median(occurence_list):
     return statistics.median(occurence_list)
 
-# the average value
+# the 'average' value
 def get_mean(occurence_list):
     return statistics.mean(occurence_list)
-
+  

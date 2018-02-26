@@ -21,6 +21,7 @@ var chartInit = document.getElementById("myChart").getContext('2d');
 var chart = new Chart(chartInit, {
   type: 'bar',
   data: {
+
     labels: words,
     datasets:[{
       data: frequencyOfWord
