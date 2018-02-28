@@ -1,7 +1,7 @@
 import re
 import statistics
 
-word_filter_list = ["","rt"]
+word_filter_list = ["","a","the","an","is","rt"]
 
 # Use to remove 'hastags' from user input strings.
 # This way we can properly recognize the words
@@ -14,7 +14,7 @@ def remove_pound(user_input):
 # Use this function to clean up the punctuation.
 def remove_punc(single_word):
     new_user_input = re.sub('[#.!?,:;]', '', single_word)
-    return new_new_user_input
+    return new_user_input
 
 
 # Check if a word if filtered

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>#Trendlore </title>
+		<title>#trendLore</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
 		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
@@ -11,14 +11,14 @@
 	<body>
 	<div id="superParent" class="container">
 		<div class="row">
-			<div class="col" id="firstHalf">
-				<img id="logo" src="../assets/bird.png"/>
-				<p class="h1" id="titleHeader">
- 					Trendlore
-				</p>>
-				<form role="form" action="/" method="post">
-                    <input type="text" id="url" name="url" maxlength="20"></input>
-                    <button type="button" class="btn btn-secondary"> Search </button>
+			  <div class="col" id="firstHalf">
+				    <img id="logo" src="https://i.imgur.com/NE6ie27.png"/>
+				    <p class="h1" id="titleHeader">
+ 					      <img id="textLogo" src="https://i.imgur.com/JdI9xqf.png"/>
+				    </p>
+				    <form role="form" action="/" method="post">
+                <input type="text" id="url" name="url" maxlength="20" placeholder="#swagalicious"></input>
+                <button type="button" class="btn btn-secondary"> Search </button>
 				</form>
 					<div id="boxSection" class="alert alert-primary" role="alert">
 						<div class="row">
@@ -34,9 +34,8 @@
 						</div>
 					</div>
 				<div id="aboutTheProject">
-					Our repository:
-					<a href="https://github.com/dataSmugglers/stormburst">
-						https://github.com/dataSmugglers/stormburst
+					  <a href="https://github.com/dataSmugglers/TrendLore">
+						    <img src="https://i.imgur.com/FYcV2Nm.png" />
 					</a>
 				</div>
 			</div>
@@ -53,16 +52,10 @@
 			<script src="static/BarGraph.js"></script>
 			<script>
 
-                var frequencyOfWord = unescape(encodeURIComponent( {{ xresult }} )) ; // y-axis element
-                var words = {{yresult}}; //X-axis element
-
-				console.log(typeof words);
-                console.log(words);
-                console.log(typeof frequencyOfWord);
-                console.log(frequencyOfWord);
+                var words = {{ xresult|tojson }}; // x-axis elements
+                var frequencyOfWords = {{ yresult|tojson }}; // y-axis elementsx
 
                 // Grabs vars from html file
-
                 var chartInit = document.getElementById("myChart").getContext('2d');
 
                 var chart = new Chart(chartInit, {
