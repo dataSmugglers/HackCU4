@@ -11,9 +11,9 @@ sys.path.insert(0, '../')
 import keys
 keys.main() # Adds env variables for the API keys.
 
+
 app = Flask(__name__)
 
-sentence = "I love to eat spicy tacos, sip on coronas, all while relaxing at the beach."
 
 @app.route('/', methods=["GET", "POST"])
 def index():
@@ -51,18 +51,14 @@ def index():
         xresult = ordered_lists[0]
         yresult = ordered_lists[1]
 
-        xresult = unicode(json.dumps(xresult))
-        yresult = unicode(json.dumps(yresult))
+        xresult = json.dumps(xresult)
+        yresult = json.dumps(yresult)
 
         print(str(xresult))
         print(type(xresult))
 
         print(str(yresult))
         print(type (yresult))
-        
-
-
-
 
     return render_template('index.html', errors=errors, results=results, \
     xresult = xresult, yresult = yresult)
@@ -84,13 +80,15 @@ def tag():
 def parse_tweets(dict_twitter):
   # Count our tweets
   count = 0
-  cat = unicode("")
+  cat = ""
   for i in dict_twitter:
     count = count +1
-    cat += unicode(i["text"])
-    cat += unicode(" ")
+    cat += i["text"]
+    cat += " "
   return (cat, count)
-  
+
+
+# Handles our API call out to Twitter
 def Twitter_API_Call():
   apiConsumerKey = str(os.environ['CONSUMER_KEY'])
   apiConsumerSecret = str(os.environ['CONSUMER_SECRET'])
